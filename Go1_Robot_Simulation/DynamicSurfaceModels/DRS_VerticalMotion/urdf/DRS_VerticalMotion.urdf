@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com)
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="dp_2">
+  <link
+    name="Guide_pillar">
+    <inertial>
+      <origin
+        xyz="-1.0823E-32 0.21029 1.0059E-17"
+        rpy="0 0 0" />
+      <mass
+        value="18.025" />
+      <inertia
+        ixx="0.82065"
+        ixy="-3.0672E-32"
+        ixz="-1.9173E-32"
+        iyy="0.18157"
+        iyz="3.9198E-16"
+        izz="0.82065" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="DRS_VerticalMotion/meshes/Guide_pillar.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.5 0.8 0.8 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="DRS_VerticalMotion/meshes/Guide_pillar.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="platform_plane">
+    <inertial>
+      <origin
+        xyz="4.2171E-35 0.46456 -4.0282E-18"
+        rpy="0 0 0" />
+      <mass
+        value="64.179" />
+      <inertia
+        ixx="5.2882"
+        ixy="0"
+        ixz="2.4543E-35"
+        iyy="22.538"
+        iyz="1.4637E-16"
+        izz="18.788" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="DRS_VerticalMotion/meshes/platform_plane.STL" />
+      </geometry>
+      <material
+        name="AL">
+        <color
+          rgba="0.5 0.6 0.6 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0.005 0.0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="DRS_VerticalMotion/meshes/platform_plane.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="P1"
+    type="prismatic">
+    <origin
+      xyz="0 0 0.25"
+      rpy="1.5708 0 0" />
+    <parent
+      link="Guide_pillar" />
+    <child
+      link="platform_plane" />
+    <axis
+      xyz="0 1 0 " />
+    <limit
+      lower="-0.25"
+      upper="0.35"
+      effort="0"
+      velocity="10" />
+  </joint>
+</robot>

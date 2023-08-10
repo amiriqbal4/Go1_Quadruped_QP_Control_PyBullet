@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com)
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="Treadmill_for_pb">
+  <link
+    name="Base_Treadmill">
+    <inertial>
+      <origin
+        xyz="0.22167 0.50026 0.80092"
+        rpy="0 0 0" />
+      <mass
+        value="59.324" />
+      <inertia
+        ixx="6.3399"
+        ixy="2.0032E-15"
+        ixz="5.8578E-15"
+        iyy="7.4937"
+        iyz="5.4091E-17"
+        izz="3.7496" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="DRS_Motek_treadmill/meshes/Base_Treadmill.STL" />
+      </geometry>
+      <material
+        name="AL">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="DRS_Motek_treadmill/meshes/Base_Treadmill.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Intermediate_link">
+    <inertial>
+      <origin
+        xyz="-2.7756E-17 0.049278 0.5"
+        rpy="0 0 0" />
+      <mass
+        value="9.4735" />
+      <inertia
+        ixx="0.22651"
+        ixy="3.7563E-18"
+        ixz="-1.8308E-18"
+        iyy="0.35242"
+        iyz="8.5205E-18"
+        izz="0.14109" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="DRS_Motek_treadmill/meshes/Intermediate_link.STL" />
+      </geometry>
+      <material
+        name="AL">
+        <color
+          rgba="0.2 0.4 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="DRS_Motek_treadmill/meshes/Intermediate_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Revolute_b_i"
+    type="revolute">
+    <origin
+      xyz="0.22167 -0.30092 0.80831"
+      rpy="1.5708 0 0" />
+    <parent
+      link="Base_Treadmill" />
+    <child
+      link="Intermediate_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.0"
+      upper="2.0"
+      effort="5000"
+      velocity="2" />
+  </joint>
+  <link
+    name="Platform_top">
+    <inertial>
+      <origin
+        xyz="0 1.1261E-05 0"
+        rpy="0 0 0" />
+      <mass
+        value="143.86" />
+      <inertia
+        ixx="22.826"
+        ixy="-2.0487E-17"
+        ixz="1.8176E-15"
+        iyy="130.7"
+        iyz="8.9087E-18"
+        izz="107.91" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="DRS_Motek_treadmill/meshes/Platform_top.STL" />
+      </geometry>
+      <material
+        name="AL">
+        <color
+          rgba="0.7 0.8 0.8 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="DRS_Motek_treadmill/meshes/Platform_top.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Prismatic_i_p"
+    type="prismatic">
+    <origin
+      xyz="01.0 0.055 0.5"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="Intermediate_link" />
+    <child
+      link="Platform_top" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.0"
+      upper="3.0"
+      effort="5000"
+      velocity="0" />
+  </joint>
+</robot>
